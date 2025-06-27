@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaê - Calculadora de Reserva</title>
+
+    <!-- Fonte e estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+
+<header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+<img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+
+    <nav class="menu-navegacao">
+      <ul>
+          <li><a href="{{ url_for('home_usuario') }}">Início</a></li>
+     <li><a href="{{ url_for('listar_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('listar_despesas') }}">Despesas</a></li>
+        <li><a href="{{ url_for('carteira') }}">Carteira</a></li>
+        <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+        <li><a href="{{ url_for('sair') }}">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="formulario-cartao">
+    <h2>Cálculo de reserva de emergência</h2>
+
+    <!-- Mensagens de erro -->
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+      {% if mensagens %}
+        <ul class="mensagens-flash">
+          {% for categoria, mensagem in mensagens %}
+            <li class="mensagem-{{ categoria }}">{{ mensagem }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Formulário -->
+    <form method="POST" action="{{ url_for('calculadora') }}" class="formulario-cadastro">
+      <label for="gastos">Média mensal de gasto</label>
+      <input type="number" id="gastos" name="gastos" placeholder="Informe seu gasto mensal" required step="0.01">
+
+      <label for="atual">Reserva atual</label>
+      <input type="number" id="atual" name="atual" placeholder="Informe quanto já possui" required step="0.01">
+
+      <label for="renda">Renda mensal</label>
+      <input type="number" id="renda" name="renda" placeholder="Informe sua renda atual" required step="0.01">
+
+      <label for="meses">Meses de cobertura desejados</label>
+      <input type="number" id="meses" name="meses" placeholder="Quantos meses deseja cobrir?" required>
+
+      <button type="submit" class="botao-principal">Calcular</button>
+    </form>
+
+ <!-- Resultados - Mantenha esta parte exatamente como está no seu código original -->
+{% if resultado %}
+  <div class="resultado">
+    <p><strong>Reserva necessária:</strong> R$ {{ "%.2f"|format(resultado.necessaria) }}</p>
+    <p><strong>Valor a poupar ainda:</strong> R$ {{ "%.2f"|format(resultado.a_poupar) }}</p>
+    <p><strong>Tempo estimado:</strong> {{ resultado.tempo }} mês(es)</p>
+    <p><strong>Valor mensal a poupar:</strong> R$ {{ "%.2f"|format(resultado.mensal) }}</p>
+  </div>
+{% endif %}
+    <!-- Botão Voltar -->
+    <div class="voltar-centro">
+      <a href="{{ url_for('home') }}" class="botao-voltar">Voltar</a>
+    </div>
+  </section>
+</main>
+
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaê - Editar Receita</title>
+
+    <!-- Fonte e estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+ <header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+<img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+
+    <nav class="menu-navegacao">
+      <ul>
+          <li><a href="{{ url_for('home_usuario') }}">Início</a></li>
+     <li><a href="{{ url_for('listar_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('listar_despesas') }}">Despesas</a></li>
+        <li><a href="{{ url_for('carteira') }}">Carteira</a></li>
+        <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+        <li><a href="{{ url_for('sair') }}">Sair</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+    <!-- Conteúdo principal -->
+    <main>
+  <section class="formulario-cartao">
+          <h2 class="titulo-formulario">Editar Receita</h2>
+
+        <!-- Mensagens flash -->
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% if mensagens %}
+                <ul class="mensagens-flash">
+                    {% for categoria, mensagem in mensagens %}
+                        <li class="mensagem-{{ categoria }}">{{ mensagem }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Formulário de edição -->
+<form method="POST" action="/editar_receita/{{ receita.id }}" class="formulario-cadastro">            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" value="{{ receita.descricao }}" required>
+
+            <label for="valor">Valor (R$):</label>
+            <input type="number" id="valor" name="valor" step="0.01" value="{{ receita.valor }}" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" value="{{ receita.data }}">
+
+            <button type="submit" class="botao-principal">Salvar Alterações</button>
+        </form>
+
+        <div class="botoes-voltar">
+            <a href="{{ url_for('listar_receitas') }}" class="botao-voltar">Voltar</a>
+
+        </div>
+    </main>
+
+     <!-- Rodapé -->
+    <footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>

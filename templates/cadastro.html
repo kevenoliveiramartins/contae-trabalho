@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaê - Cadastro</title>
+
+    <!-- Fonte e estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+<!-- CABEÇALHO -->
+<header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+<img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+
+    <nav class="menu-navegacao">
+      <ul>
+         <li><a href="#">Receitas</a></li>
+        <li><a href="#">Despesas</a></li>
+        <li><a href="#">Carteira</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+    <!-- Conteúdo principal -->
+   <main class="conteudo-cadastro">
+
+   <div class="formulario-cartao">
+    <h2 class="titulo-formulario">Cadastro</h2>
+
+  {% with mensagens = get_flashed_messages(with_categories=true) %}
+  {% if mensagens %}
+    <ul class="mensagens-flash">
+      {% for categoria, mensagem in mensagens %}
+        <li class="mensagem-{{ categoria }}">{{ mensagem }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+ <form method="POST" action="{{ url_for('cadastro') }}" class="formulario-cadastro">
+
+    <label for="nome">Nome completo:</label>
+    <input type="text" name="nome" id="nome" placeholder="Seu nome completo" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="cpf">CPF:</label>
+    <input type="number" name="cpf" id="cpf" required>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" name="telefone" id="telefone" required>
+
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" id="senha" required>
+
+    <label for="confirmar_senha">Confirmar Senha:</label>
+    <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+
+    <button type="submit" class="botao-principal">Cadastrar</button>
+</form>
+
+
+<p class="link-login">Já tenho conta? <a href="{{ url_for('entrar') }}">Entrar</a></p>
+
+
+    </main>
+
+
+  <!-- Rodapé -->
+    <footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>

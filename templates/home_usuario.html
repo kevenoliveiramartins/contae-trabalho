@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Contaê - Home do Usuário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+<img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+
+    <nav class="menu-navegacao">
+      <ul>
+        <li><a href="{{ url_for('home_usuario') }}">Início</a></li>
+     <li><a href="{{ url_for('listar_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('listar_despesas') }}">Despesas</a></li>
+        <li><a href="{{ url_for('carteira') }}">Carteira</a></li>
+        <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+        <li><a href="{{ url_for('sair') }}">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+<main class="conteudo-home">
+  <section class="blocos-informativos">
+    <div class="bloco-informativo">
+      <p> <br> <br> ESCOLHA INTELIGENTE<br>ESCOLHA A CONTAÊ</p>
+    </div>
+    <div class="bloco-informativo">
+      <h2>QUEM SOMOS</h2>
+      <p>Na Contaê, acreditamos que organizar suas finanças deve ser simples, acessível e eficaz.</p>
+    </div>
+  </section>
+
+  <div class="titulo-servicos">
+  <h1>Serviços</h1>
+</div>
+
+  <section class="servicos">
+    <div class="servico">
+      <p>Registro de transações</p>
+      <a href="{{ url_for('listar_despesas') }}" class="botao-secundario">Ver serviços</a>
+    </div>
+    <div class="servico">
+      <p>Carteira Pessoal</p>
+      <a href="{{ url_for('carteira') }}" class="botao-secundario">Ver serviços</a>
+    </div>
+    <div class="servico">
+      <p>Cálculo de reserva de emergência</p>
+      <a href="{{ url_for('calculadora') }}" class="botao-secundario">Ver serviços</a>
+
+
+    </div>
+  </section>
+</main>
+
+  <!-- Rodapé -->
+    <footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>

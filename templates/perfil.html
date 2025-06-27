@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaê - Perfil</title>
+
+    <!-- Fonte e estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+    <nav class="menu-navegacao">
+      <ul>
+        <li><a href="{{ url_for('home_usuario') }}">Início</a></li>
+        <li><a href="{{ url_for('listar_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('listar_despesas') }}">Despesas</a></li>
+        <li><a href="{{ url_for('carteira') }}">Carteira</a></li>
+        <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+        <li><a href="{{ url_for('sair') }}">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Conteúdo principal -->
+<main class="conteudo-perfil">
+  <div class="box-perfil">
+    <img src="{{ url_for('static', filename='img/Foto de Perfil.png') }}" alt="Avatar do Usuário" class="avatar-perfil">
+    <h1 class="titulo-perfil">Olá, {{ usuario.nome.split(' ')[0] }}!</h1>
+
+    <div class="dados-perfil">
+      <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+      <p><strong>E-mail:</strong> {{ usuario.email }}</p>
+      <p><strong>CPF:</strong> {{ usuario.cpf }}</p>
+    </div>
+
+    <div class="botoes-perfil">
+      <a href="{{ url_for('editar_perfil') }}" class="botao-principal">Editar Perfil</a>
+      <a href="{{ url_for('carteira') }}" class="botao-voltar">Voltar</a>
+    </div>
+  </div>
+</main>
+
+<!-- Rodapé -->
+<footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>

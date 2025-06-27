@@ -1,0 +1,675 @@
+/* =========================
+   Paleta de Cores Global
+   ========================= */
+:root {
+  --amarelo: #FAF039;
+  --azul-escuro: #0F0066;
+  --branco: #FFFFFF;
+  --vermelho-claro: #F5CECE;
+  --azul-claro: #DBE9FB;
+  --azul-texto: #3C8DF6;
+  --vermelho-texto: #FB3232;
+  --cinza: #807777;
+  --preto: #000000;
+}
+
+/* =========================
+   Fonte e Cores Gerais
+   ========================= */
+body {
+  font-family: 'Lalezar', cursive;
+  background-color: var(--branco);
+  margin: 0;
+  padding: 0;
+  color: var(--azul-escuro);
+}
+
+/* =========================
+   Container Centralizado
+   ========================= */
+
+main, .conteudo-principal, .conteudo-home, .conteudo-cadastro,
+.conteudo-login, .conteudo-carteira, .conteudo-calculadora,
+.conteudo-formulario, .conteudo-perfil {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   Cabeçalho e Navegação
+   ========================= */
+.cabecalho {
+  background-color: var(--azul-escuro);
+  padding: 15px 40px;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column; /* ✅ Agora tudo fica lado a lado */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-header {
+  height: 45px;
+}
+
+.titulo-logo {
+  font-size: 22px;
+  color: var(--branco);
+}
+
+.menu-navegacao a,
+.menu-navegacao li a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.menu-navegacao a:hover,
+.menu-navegacao li a:hover {
+  opacity: 0.8;
+}
+
+.menu-navegacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-navegacao ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-navegacao a.desativado {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.menu-navegacao a.ativo {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   Blocos Informativos
+   ========================= */
+.blocos-informativos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: nowrap;
+}
+
+.bloco-informativo {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  font-size: 22px;
+  padding: 10px 40px;
+  border-radius: 75px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+.bloco-menor {
+  width: 200px; /* menor largura */
+}
+
+.bloco-maior {
+  width: 350px; /* maior largura */
+}
+
+/* =========================
+   Título "Serviços"
+   ========================= */
+.titulo-servicos h1 {
+  background-color: var(--amarelo);
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 30px;
+  font-size: 28px;
+  margin: 40px auto;
+  text-align: center;
+}
+/* ========== TÍTULO COM IMAGEM DE FUNDO ========== */
+.titulo-servicos {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.titulo-servicos img {
+  width: 220px;
+  height: auto;
+}
+
+/* ========== BLOCOS DE SERVIÇOS COM IMAGEM DE FUNDO ========== */
+.servicos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.bloco-servico {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+/* CONTAINER DO FORMULÁRIO */
+.formulario-cartao {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  width: 500px;
+  margin: 50px auto;
+  padding: 30px 20px 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: start;
+}
+
+/* TÍTULO CENTRAL */
+.formulario-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* era 10px ou mais, agora mais compacto */
+  text-align: ;
+}
+
+.formulario-cadastro input {
+  padding: 6px 7px; /* altura interna do input menor */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-family: 'Lalezar', cursive;
+  font-size: 8px;
+  outline: none;
+  margin-bottom: 2px; /* reduzido */
+}
+
+.formulario-cadastro label {
+  margin-left: 2px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+
+.formulario-cadastro input {
+  padding: 10px 14px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-family: 'Lalezar', cursive;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.formulario-cadastro input:focus {
+  border-color: var(--azul-claro);
+}
+
+/* BOTÃO AVANÇAR */
+.botao-principal {
+  margin-top: 20px;
+  background-color: var(--azul-escuro);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 20px;
+  font-family: 'Lalezar', cursive;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.formulario-cartao {
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 350px;
+  margin: 30px auto;
+  box-shadow: 0px 0px 4px 1px rgb(0 0 0);
+  border: 1px solid #999;
+}
+.formulario-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* menor espaço entre campos */
+}
+
+.formulario-cadastro label {
+  font-size: 13px;
+  margin-top: 6px;
+  margin-left: 8px;
+}
+
+.formulario-cadastro input {
+  padding: 4px 10px; /* altura mais baixa */
+  font-size: 14px;
+  border: 1px solid #999;
+  border-radius: 15px;
+  outline: none;
+  height: 30px; /* reduzido! */
+}
+
+.botao-principal {
+  margin-top: 15px;
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 20px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.botao-principal:hover {
+  opacity: 0.9;
+}
+
+/* LINK “JÁ TENHO CONTA?” */
+.link-login {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #000000;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.link-login a {
+  color: var(--azul-escuro);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+/* ========== BOTÃO "VER SERVIÇOS" ========== */
+.botao-servico {
+  position: absolute;
+  bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--azul-escuro);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.box-perfil{
+    justify-content: center;
+}
+
+.conteudo-perfil{
+    display: flex;
+    justify-content: center;
+}
+
+.botao-servico:hover {
+  opacity: 0.9;
+}
+.servico {
+  background-color: var(--amarelo);
+  width: 240px;
+  height: 130px;
+  border-radius: 40px;
+  padding: 25px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+.botao-servico {
+  background-color: #D9D9D9;
+  color: black;
+  font-weight: bold;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.botao-servico:hover {
+  opacity: 0.9;
+}
+
+
+/* =========================
+   Seção de Serviços
+   ========================= */
+.servicos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+    background-image: url(/static/img/quadrado amarelo home.png);
+    background-position: center;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+    padding: 25px 10px;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.servico p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* TÍTULO COM IMAGEM */
+.fundo-retangulo {
+  background-image: url('/static/img/Retangulo pra titulo.png'); /* ajuste o caminho */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 30px;
+}
+
+.fundo-retangulo span {
+  color: #0F0066;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* SEÇÃO DE SERVIÇOS */
+.servicos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.servico {
+  background-image: url('/static/img/quadrado amarelo home.png'); /* ajuste o caminho */
+  background-position: center;
+  width: 240px;
+  height: 130px;
+  text-align: center;
+  padding: 25px 10px;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.servico h3 {
+  font-size: 16px;
+  color: #0F0066;
+  font-weight: bold;
+}
+
+/* BOTÃO DENTRO DO BLOCO */
+.botao-servico {
+  background-color: #D9D9D9;
+  color: black ;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.botao-servico:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   Botões Secundários
+   ========================= */
+.botao-secundario {
+  background-color: #E0E0E0;
+  color: var(--azul-escuro);
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.botao-secundario.desativado {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Botão "Cadastrar-se"
+   ========================= */
+.botao-principal {
+  background-color: var(--amarelo);
+  color: var(--azul-escuro);
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.botao-principal:hover {
+  opacity: 0.9;
+}
+
+.botao-cadastrar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 40px 0 0;
+}
+
+.botao-amarelo {
+  background-color: var(--amarelo);
+  color: var(--azul-escuro);
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.botao-amarelo:hover {
+  opacity: 0.9;
+}
+
+/* Estilo para Receitas e Despesas */
+
+.conteudo-receitas,
+.conteudo-despesas {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.titulo-pagina {
+  font-size: 32px;
+  color: #0F0066;
+  margin-bottom: 30px;
+  font-family: 'Lalezar', cursive;
+}
+
+/* Estilo da tabela */
+.tabela-receitas table,
+.tabela-despesas table {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-family: 'Lalezar', cursive;
+}
+
+.tabela-receitas th,
+.tabela-despesas th {
+  background-color: #0F0066;
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+}
+
+.tabela-receitas td,
+.tabela-despesas td {
+  padding: 12px;
+  font-size: 16px;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabela-receitas tr:last-child td,
+.tabela-despesas tr:last-child td {
+  border-bottom: none;
+}
+
+/* Botões de ação */
+.botao-editar {
+  background-color: #FAF039;
+  color: #0F0066;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.botao-excluir {
+  background-color: #FB3232;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+/* Botões abaixo da tabela */
+.botoes-receita,
+.botoes-despesas {
+  margin-top: 30px;
+}
+
+.botoes-receita a,
+.botoes-despesas a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-family: 'Lalezar', cursive;
+}
+
+.botao-principal {
+  background-color: #FAF039;
+  color: #0F0066;
+  padding: 12px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.botao-voltar {
+  background-color: #0F0066;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/*
+   Rodapé
+   ========================= */
+.rodape {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-around;
+  padding: 35px;
+  width: 100vw;
+  margin: 0px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.coluna-rodape {
+  max-width: 200px;
+}
+
+/* =========================
+   Mensagens Flash
+   ========================= */
+.mensagens-flash {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.mensagem-erro {
+  color: var(--vermelho-texto);
+  /* conteúdo final removido para não mostrar ponto automático */
+}
+
+.mensagem-sucesso {
+  color: green;
+  /* conteúdo final removido para não mostrar ponto automático */
+}
+
+/
+.botao-amarelo {
+  background-color: #FAF039; /* amarelo */
+  color: #0F0066; /* azul escuro */
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.botao-amarelo:hover {
+  opacity: 0.9;
+}
+

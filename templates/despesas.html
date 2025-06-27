@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaê - Minhas Despesas</title>
+
+    <!-- Fonte e estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+<header class="cabecalho">
+  <div class="container-header">
+    <div class="logo-container">
+<img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo-header">
+    </div>
+
+    <nav class="menu-navegacao">
+      <ul>
+        <li><a href="{{ url_for('home_usuario') }}">Início</a></li>
+     <li><a href="{{ url_for('listar_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('listar_despesas') }}">Despesas</a></li>
+        <li><a href="{{ url_for('carteira') }}">Carteira</a></li>
+        <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+        <li><a href="{{ url_for('sair') }}">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo-despesas">
+        <h1 class="titulo-pagina">Minhas Despesas</h1>
+
+        <!-- Mensagens flash -->
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% if mensagens %}
+                <ul class="mensagens-flash">
+                    {% for categoria, mensagem in mensagens %}
+                        <li class="mensagem-{{ categoria }}">{{ mensagem }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Lista de despesas -->
+       <section class="tabela-despesas">
+  <table>
+    <thead>
+      <tr>
+        <th>Valor</th>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for despesa in despesas %}
+      <tr>
+        <td>R$ {{ "%.2f"|format(despesa.valor) }}</td>
+        <td>{{ despesa.descricao }}</td>
+        <td>{{ despesa.data }}</td>
+        <td>
+          <a href="{{ url_for('editar_despesa', id=despesa.id) }}" class="botao-editar">Editar</a>
+          <a href="{{ url_for('excluir_despesa', id=despesa.id) }}" class="botao-excluir">Excluir</a>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4">Nenhuma despesa cadastrada.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+
+        <!-- Botões -->
+        <div class="botoes-despesas">
+            <a href="{{ url_for('adicionar_despesa') }}" class="botao-principal">Adicionar Despesa</a>
+            <a href="{{ url_for('carteira') }}" class="botao-voltar">Voltar</a>
+        </div>
+    </main>
+
+      <!-- Rodapé -->
+    <footer class="rodape">
+  <div class="coluna-rodape">
+    <h4>Sobre Nós</h4>
+    <p>Simplificamos o controle para você gerenciar suas finanças com eficiência.</p>
+  </div>
+  <div class="coluna-rodape">
+    <h4>Contato</h4>
+    <p>contato@contae.com<br>(99) 9999-9999<br>www.contae.com</p>
+  </div>
+  <div class="coluna-rodape">
+    <img src="{{ url_for('static', filename='img/Logo Contaê.png') }}" alt="Logo Contaê" class="logo" style="max-height: 50px;">
+  </div>
+</footer>
+
+</body>
+</html>
